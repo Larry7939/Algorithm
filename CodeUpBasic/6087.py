@@ -1,7 +1,5 @@
 a = int(input())
-sum = 0
-b = 0
-while(sum<a):
-    b+=1
-    sum+=b
-print(sum)
+res = []
+for i in range(1,a+1):
+    if i%3!=0:res.append(i)
+print(*res)
