@@ -18,15 +18,16 @@ class Stack:
         if not self.isEmpty():
             return self.stack.pop(-1)
         else:
-            print("stack underflow")
-            exit()
+            print("stack is empty")
 
     def peek(self):
         if not self.isEmpty():
             return self.stack[-1]
         else:
-            print("underflow")
-            exit()
+            print("stack is empty")
+
+    def clear(self):
+        self.stack.clear()
 
 
 s = Stack()
@@ -36,4 +37,6 @@ s.push(3)
 s.push(4)
 s.push(5)
 s.pop()
-print(s)
+s.pop()
+s.pop()
+s.pop()
