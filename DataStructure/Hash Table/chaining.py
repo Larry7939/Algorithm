@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, key, value, next=None):
         self.key = key
@@ -20,7 +19,7 @@ class ChainHash:
                 return p.value
             p = p.next
         return None
-    def add(self,key,value)->bool:
+    def insert(self,key,value)->bool:
         #동일한 키가 존재하는 지 끝 노드까지 검사한 후에, 없으면 체인 맨 앞에 추가
         hash = self.hash_value(key)
         p = self.table[hash]
@@ -59,14 +58,20 @@ class ChainHash:
                 print(f' ->{p.key}({p.value})',end='')
                 p = p.next
             print()
+    def __getitem__(self,key):
+        return self.search(key)
+    def __setitem__(self,key,value):
+        return self.insert(key,value)
         
 ch = ChainHash(5)
-ch.add(15,'김')
-ch.add(45,'박')
-ch.add(13,'이')
-ch.add(34,'최')
-ch.add(51,'오')
-ch.add(28,'정')
-ch.add(43,'주')
-ch.add(16,'성')
+ch.insert(15,'김')
+ch.insert(45,'박')
+ch.insert(13,'이')
+ch.insert(34,'최')
+ch.insert(51,'오')
+ch.insert(28,'정')
+ch.insert(43,'주')
+ch.insert(16,'성')
 ch.dump()
+print(ch[15])
+print(ch[34])
