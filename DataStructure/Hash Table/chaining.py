@@ -1,40 +1,37 @@
-from __future__ import annotations
-from typing import Any,Type
-import hashlib
 
 class Node:
-    def __init__(self,key:Any,value:Any,next:Node):
+    def __init__(self, key, value, next=None):
         self.key = key
         self.value = value
         self.next = next
-class ChainedHash:
-    def __init__(self,capacity:int)->None:
+class ChainHash:
+    def __init__(self,capacity:int) -> None:
         self.capacity = capacity
         self.table = [None]*capacity
-    def hash_value(self,key:Any)->int:
-        if isinstance(key,int):
-            return key%self.capacity
-        return int((hashlib.sha256(str(key).encode()).hexdigest,16)%self.capacity)
-    def search(self,key:Any)->Any:
+    def hash_value(self,key)->int:
+        return key%self.capacity
+
+
+    def search(self,key):
         hash = self.hash_value(key)
         p = self.table[hash]
         while p is not None:
-            if p.key==key:
+            if(p.key == key):
                 return p.value
             p = p.next
         return None
-    def add(self,key:Any,value:Any)->bool:
+    def add(self,key,value)->bool:
+        #동일한 키가 존재하는 지 끝 노드까지 검사한 후에, 없으면 체인 맨 앞에 추가
         hash = self.hash_value(key)
         p = self.table[hash]
         while p is not None:
-            if p.key==key:
+            if p.key == key:
                 return False
             p = p.next
         temp = Node(key,value,self.table[hash])
         self.table[hash] = temp
         return True
-
-    def remove(self,key:Any)->bool:
+    def remove(self,key)->bool:
         hash = self.hash_value(key)
         p = self.table[hash]
         pp = None #직전 노드 pp
@@ -48,9 +45,9 @@ class ChainedHash:
                     pp.next = p.next
                 return True
             #현재 노드가 직전노드(pp)가 됨
-            pp = p
+            pp = p 
             #다음 노드 주목
-            p =p.next
+            p = p.next
         return False
     #해시테이블을 덤프
     #각 노드의 키와 값을 출력한다.
@@ -62,3 +59,14 @@ class ChainedHash:
                 print(f' ->{p.key}({p.value})',end='')
                 p = p.next
             print()
+        
+ch = ChainHash(5)
+ch.add(15,'김')
+ch.add(45,'박')
+ch.add(13,'이')
+ch.add(34,'최')
+ch.add(51,'오')
+ch.add(28,'정')
+ch.add(43,'주')
+ch.add(16,'성')
+ch.dump()
