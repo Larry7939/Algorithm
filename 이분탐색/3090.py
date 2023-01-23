@@ -9,7 +9,7 @@ a = list(map(int, input().split(" ")))
 # left > right인 경우, 원소간의 차이를 좁히기 위한 감소현산 - O(n)
 
 def needed_num_operation(x: int) -> int:
-    b = a[:]
+    b = [a[i] for i in range(n)]
     num_operation = 0
     for i in range(n-1):
         if b[i+1] - b[i] > x:
