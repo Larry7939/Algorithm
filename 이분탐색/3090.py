@@ -1,30 +1,42 @@
 # BOJ 3090 차이를 최소로
 # 입력부
-# 배열 a의 크기 n 입력
-# 감소연산 최대 횟수 t 입력
+# 배열 길이 n - 10^5
+# 감소연산 횟수 t - 10^9
+# 각 원소의 차이 - 10^9
+# 배열 a
 
 n, t = tuple(map(int, input().split(" ")))
 a = list(map(int, input().split(" ")))
+
+# 시간제한 1초
+# n^2 - 10^14으로, 10^7*2보다 크다. fail
+# nlogn - 10^5*10*3 = 3*10^6으로, 10^7*2보다 작다
+# 이분탐색을 활용하여 문제를 풀어보자!
+# 이분탐색 내부에서 조건에 따라 감소연산을 하는 함수를 호출 해야 한다!
+
 # left < right인 경우, 원소간의 차이를 좁히기 위한 감소현산 - O(n)
 # left > right인 경우, 원소간의 차이를 좁히기 위한 감소현산 - O(n)
 
 def needed_num_operation(x: int) -> int:
     b = [a[i] for i in range(n)]
     num_operation = 0
+    # 우측이 좌측보다 큰 경우 감소연산하고 감소연산 횟수 카운트
     for i in range(n-1):
         if b[i+1] - b[i] > x:
             num_operation += b[i+1]-b[i]-x
             b[i+1] = b[i] + x
     for i in range(n-1, 0, -1):
+    # 좌측이 우측보다 큰 경우 감소연산하고 감소연산 횟수 카운트
         if b[i-1] - b[i] > x:
             num_operation += b[i-1]-b[i]-x
             b[i-1] = b[i] + x
     return num_operation
+
 # 이분탐색
 # 최소 차이 : 0
-# 최대 차이 : 배열의 max 값
+# 최대 차이 : 10^9 - 각 원소의 최대 차이
 low = 0
-high = max(a)
+high = int(1e9)
 answer = -1
 
 while low <= high:
