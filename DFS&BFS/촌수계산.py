@@ -10,6 +10,7 @@ a,b = map(int,input().split())
 m = int(input())
 graph = [[] for _ in range(n+1)]
 
+#상하관계가 아니라 연결 관계로 보기!
 #graph[i]을 통해 특정 사람 i와 연결된 사람들을 전부 볼 수 있도록 함
 for _ in range(m):
     x,y = map(int,input().split())
