@@ -1,3 +1,5 @@
+# BOJ 4963
+# 풀이횟수 2
 import sys
 sys.setrecursionlimit(10000)
 # 매번 입력을 마칠 때마다 answer에 섬의 개수를 append하면 될듯?
