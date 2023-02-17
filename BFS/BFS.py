@@ -1,4 +1,5 @@
 from collections import deque
+#풀이횟수 2
 
 def bfs(graph,start,visited):
     queue = deque([start])
