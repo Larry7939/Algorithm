@@ -1,5 +1,5 @@
 from collections import deque
-#풀이횟수 1
+#풀이횟수 2
 
 #맨 처음에는 queue에 있는 것을 꺼내면서 시작
 #queue에서 꺼내면, 그곳으로 이동하는 것임.
