@@ -1,38 +1,33 @@
-# 바이러스, 작업, 촌수 계산, 헌내기는 친구가 필요해, 섬의 개수, 음료수 얼려먹기, 사과빨리먹기, 컴백홈
-
+# 단방향 그래프
 # 입력
-#  컴퓨터의 수 - N
-#  컴퓨터 쌍의 수 - M
-#  컴퓨터 번호 쌍 M개 -  길이 N의 배열 relationships[]
+#  작업 개수 - N
+#  작업 순서 정보의 개수 - M
+#  작업 순서 정보 - jobs[[]*N+1]
+#  필수 작업 X
 # 출력
-#  1번 컴퓨터와 직간접적으로 연결되어있는 컴퓨터의 수 - result
+#  X를 마치기 위한 사전 작업의 개수
 
-# 컴퓨터 연결하는 방법
-#  각 컴퓨터 n의 관계를 나타내는 relationships[n]에 연결하고 싶은 컴퓨터 번호를 append한다.
-#  위 과정은 M번 수행된다.
-def addRelation(currentComputer:int,computerNumber:int):
-    relationGraph[currentComputer].append(computerNumber)
-    relationGraph[computerNumber].append(currentComputer)
-
-
-#1번부터 시작해서 연결되어있는 컴퓨터 번호로 이동하고 result를 증가시킨다.
-#다시 돌아오지 않도록 visited[i]가 False인지를 검사한다.
-def DFS(v):
-    global result
-    visited[v] = True
-    for i in relationGraph[v]:
-        if(visited[i]==False):
-            result += 1
-            DFS(i)
-
-N = int(input())
-M = int(input())
-relationGraph = [[] for _ in range(N+1)]
-result = 0
-start = 1
+N,M = map(int,input().split())
 visited = [False]*(N+1)
+jobs = [[] for _ in range(N+1)]
+answer = 0
+
+#입력할 때에는 사전 작업으로 거슬러 올라가야하기 때문에,
+# jobs[y].append(x)
 for _ in range(M):
     x,y = map(int,input().split())
-    addRelation(x,y)
-DFS(start)
-print(result)
+    jobs[y].append(x)
+X = int(input())
+
+def dfs(v):
+    global answer
+    # visited true로 변경
+    # for문으로 jobs[v]를 돌면서 if문으로 visited[i]검사
+    # visited[i]가 False인 경우만 dfs(i), answer+=1
+    visited[v] = True
+    for i in jobs[v]:
+        if visited[i] == False:
+            answer+=1
+            dfs(i)
+dfs(X)
+print(answer)
