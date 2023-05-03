@@ -9,7 +9,7 @@ graph = [[] for _ in range(N+1)]
 for _ in range(M):
     x, y = list(map(int, input().split()))
     graph[x].append(y)
-    graph[y].append(x)
+    graph[y].append(x) #"서로 연결" -> 양방향이기 때문에, 반대로도 이어줘야함
 visited = [False]*(N+1)
 num = 0
 result=[0]
