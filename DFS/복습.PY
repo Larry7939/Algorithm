@@ -1,33 +1,40 @@
-# 단방향 그래프
 # 입력
-#  작업 개수 - N
-#  작업 순서 정보의 개수 - M
-#  작업 순서 정보 - jobs[[]*N+1]
-#  필수 작업 X
-# 출력
-#  X를 마치기 위한 사전 작업의 개수
+# 전체 사람의 수 : N
+# 촌수 계산 대상 : a,b
+# 관계의 수 : M
+# 관계 M 개
 
-N,M = map(int,input().split())
+N = int(input())
+a, b = map(int, input().split())
+M = int(input())
+relationship = [[] for _ in range(N+1)]
 visited = [False]*(N+1)
-jobs = [[] for _ in range(N+1)]
-answer = 0
-
-#입력할 때에는 사전 작업으로 거슬러 올라가야하기 때문에,
-# jobs[y].append(x)
 for _ in range(M):
-    x,y = map(int,input().split())
-    jobs[y].append(x)
-X = int(input())
+    x, y = map(int, input().split())
+    relationship[x].append(y)
+    relationship[y].append(x)
+num = 0
+result = []
 
-def dfs(v):
-    global answer
-    # visited true로 변경
-    # for문으로 jobs[v]를 돌면서 if문으로 visited[i]검사
-    # visited[i]가 False인 경우만 dfs(i), answer+=1
+# 입력받은 두 사람의 번호를 양방향으로 연결
+# dfs로 a부터 시작해서 b가 나올 때까지 answer를 증가시키며 재귀호출
+# for문으로 relationship[]을 전부 돌면서 체크
+# if문으로 visited여부 체크
+# if문으로 v가 b가 맞으면, isMatched를 True로 변경
+# 출력부
+# isMatched가 False면 -1, True면 answer 출력
+
+
+def dfs(v,num):
+    num+=1 #global을 사용하면 안되는 이유 - 다른 분기를 거친 결과가 num에 누적되어버리기 때문
     visited[v] = True
-    for i in jobs[v]:
+    if (v == b):
+        result.append(num)
+    for i in relationship[v]:
         if visited[i] == False:
-            answer+=1
-            dfs(i)
-dfs(X)
-print(answer)
+            dfs(i,num)
+dfs(a,num)
+if len(result)==0:
+    print(-1)
+else:
+    print(result[0]-1)
