@@ -1,19 +1,19 @@
 import sys
-# 1이 될 때까지
-# 1. N에서 1을 뺀다
-# 2. N을 K로 나눈다.
+#모험가 길드
 
-n,k = map(int,sys.stdin.readline().split())
-result = 0
+n = int(sys.stdin.readline())
+fear_list = list(map(int,sys.stdin.readline().split()))
+fear_list.sort()
+#공포도가 낮은 모험가부터 그룹 결성
+#공포도보다 구성원 수가 크거나 같아지면 그룹 결성
+count = 0
+group_count = 0
+for fear in fear_list:
+    count += 1
+    if fear <= count:
+        group_count += 1
+        count = 0
 
-# while문을 돌면서 n이 k로 나누어 떨어지면 2번, 그렇지 않으면 1번을 수행한다.
-while n != 1:
-    if n % k == 0:
-        n = n//k
-        result += 1
-    else:
-        result += n%k
-        n -= n%k
-        
-print(result)
-# 1번 과정보다는 2번 과정을 최대한 많이 수행하여, 빠르게 N을 감소시키는 것이 핵심
+print(group_count)
+
+# 공포도가 낮은 모험가부터 그룹을 결성하는 것이 핵심
