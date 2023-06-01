@@ -2,7 +2,6 @@ import sys
 # 입력
 s = list(map(int, ''.join(sys.stdin.readline().rstrip())))
 s.sort(reverse=True)
-result = 1
 
 result = s[0]
 # 메인
