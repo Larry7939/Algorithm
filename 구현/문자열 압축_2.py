@@ -28,3 +28,5 @@ def solution(s):
         # 매 단위마다 압축한 길이를 append
         answer.append(len(result))
     return min(answer)
+
+#매번 단위를 높여가며, 연속되는 문자열을 체크하는 것이 핵심
