@@ -32,9 +32,9 @@
 #    불만족한다면 continue
 #    만족한다면 각각 board_poll또는 board_barrage에서 (x,y)를 remove
 def buildPoll(x,y,board_poll:list):
-    board_poll.append((x,y))
+    board_poll.add((x,y))
 def buildBarrage(x,y,board_barrage:list):
-    board_barrage.append((x,y))
+    board_barrage.add((x,y))
 
 def demolishPoll(x,y,board_poll:list):
     if (x,y) in board_poll:
@@ -127,8 +127,8 @@ def getResult(answer,board_poll,board_barrage):
     
 def solution(n, build_frame):
     answer = []
-    board_poll = []
-    board_barrage = []
+    board_poll = set()
+    board_barrage = set()
     for x,y,a,b in build_frame:
         build(b,a,x,y,board_poll,board_barrage)
     getResult(answer,board_poll,board_barrage)
