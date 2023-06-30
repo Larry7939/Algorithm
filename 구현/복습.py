@@ -1,5 +1,2 @@
-a = [1,2,3]
-def r(x:list):
-    x.append(4)
-r(a)
-print(a)
+a = [1,2,3,4,5]
+print(int(a[1:3]))
