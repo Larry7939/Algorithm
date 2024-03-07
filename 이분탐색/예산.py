@@ -44,5 +44,4 @@ answer = -1
 for request in requests:
     given = min(request,good_upper_bound) #모든 지방은 상한액과 달라고 한 금액 중 최솟값을 받을 것이다. => 각 정부가 실질적으로 받게 되는 금액
     answer = max(answer,given) #answer에는 받은 given 중에서 최대값이 들어갈 것이다.
-print(f"상한액 - ${good_upper_bound}")
-print(f"answer - ${answer}")
+print(answer)
