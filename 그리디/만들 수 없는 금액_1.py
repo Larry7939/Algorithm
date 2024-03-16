@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 import sys
 from itertools import combinations
 n = int(sys.stdin.readline().strip())
