@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 import sys
 # 입력
 s = list(map(int, ''.join(sys.stdin.readline().rstrip())))
