@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 #BOJ 11399 ATM
 import sys
 n = int(sys.stdin.readline())
