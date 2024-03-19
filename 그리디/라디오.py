@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 #BOJ 3135 라디오
 import sys
 a,b = map(int,sys.stdin.readline().split())
