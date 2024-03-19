@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 import sys
 n, m = map(int, sys.stdin.readline().split())
 result = 0
@@ -16,3 +17,4 @@ print(result)
 
 # A가 특정 무게를 선택했을 때, B가 선택하는 경우를 차례대로 계산하면 된다.
 # 각 무게의 개수를 카운트하여 일일이 경우의 수를 구하지 않고 곱셈으로 한꺼번에 경우의 수를 구하는 것이 핵심
+# 혹은 combinations를 활용한 간단한 풀이법
