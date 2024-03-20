@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 import heapq
 
 def solution(food_times,k):
