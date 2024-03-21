@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 N,M,K = map(int,input().split()) #N:배열의 크기 M:더해지는 횟수 K:최대 연속 더하는 횟수
 a:list = list(map(int,input().split()))
 sum =0
