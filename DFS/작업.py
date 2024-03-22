@@ -1,5 +1,6 @@
 # BOJ 21937
-# 풀이횟수 2
+# 풀이횟수 3
+# setrecursionlimit과 stdin 사용하지 않을 시 시간 초과
 import sys
 input = sys.stdin.readline
 
