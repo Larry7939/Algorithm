@@ -1,4 +1,4 @@
-# 풀이 횟수 2
+# 풀이 횟수 3
 n = int(input())
 data = list(map(int,input().split()))
 data.sort()
