@@ -1,3 +1,4 @@
+# 풀이 횟수 2
 from collections import deque
 
 # 작업의 개수 입력
