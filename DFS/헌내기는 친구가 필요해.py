@@ -1,5 +1,5 @@
 # BOJ 21736
-# 풀이횟수 3
+# 풀이횟수 4
 import sys
 input = sys.stdin.readline
 sys.setrecursionlimit(10**6)
