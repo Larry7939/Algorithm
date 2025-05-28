@@ -1,4 +1,5 @@
 # BOJ 15650 N과 M (2)
+# 풀이 횟수 2
 import sys
 
 N, M = map(int, sys.stdin.readline().split())
