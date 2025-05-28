@@ -1,6 +1,6 @@
 import sys
 sys.setrecursionlimit(10**7)
-
+input = sys.stdin.readline
 N,M,R = map(int,input().split())
 # N: 정점의 수
 # M: 간선의 수
