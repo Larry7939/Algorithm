@@ -16,7 +16,6 @@ def backtracking():
         if visited[i]:
             continue
         if prev == a[i]:
-            print("prev->",prev)
             continue
         visited[i] = True
         s.append(a[i])
