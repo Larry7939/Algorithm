@@ -1,3 +1,4 @@
+# 풀이 횟수: 2
 def backtracking(index, s):
     if index == N:
         if len(s) == 6:

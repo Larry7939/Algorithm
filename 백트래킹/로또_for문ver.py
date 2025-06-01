@@ -1,4 +1,4 @@
-
+# 풀이 횟수: 2
 def backtracking(num):
     if len(s)==M:
         print(*s)
