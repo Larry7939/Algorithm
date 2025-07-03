@@ -13,7 +13,7 @@ count = 0
 group = 0
 for fear in fear_list:
     count += 1
-    #  그룹 결성 및 카운트, 공포도 합계 초기화
+    #  그룹 결성 및 카운트, 인원 수 초기화
     if fear == count:
         group += 1
         count = 0
