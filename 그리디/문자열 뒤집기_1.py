@@ -1,4 +1,4 @@
-# 풀이 횟수 2
+# 풀이 횟수 3
 import sys
 n = list(map(int,sys.stdin.readline().rstrip()))
 diffIndex = []
